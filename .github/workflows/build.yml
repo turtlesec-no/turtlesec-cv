@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: sudo apt-get -y install texlive-full
+
+      - name: Build pdfs
+        run: |
+          make
+          make clean
+      
+      - name: Commit pdf files
+        working-directory: pdfs
+        run: | 
+          git config user.email "bot@turtlesec.no"
+          git config user.name "Turtle Bot (GitHub Action)"
+          if [[ "$( git status --porcelain)" != "" ]]; then
+            git add *.pdf
+            git commit -m "Updated pdf files"
+            git push
+          fi
