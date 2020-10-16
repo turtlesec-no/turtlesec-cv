@@ -1,4 +1,4 @@
-![CI](https://github.com/turtlesec-no/turtlesec-cv-template/workflows/CI/badge.svg)
+![CI](https://github.com/turtlesec-no/turtlesec-cv/workflows/CI/badge.svg)
 
 # CV for TurtleSec Consultants
 
