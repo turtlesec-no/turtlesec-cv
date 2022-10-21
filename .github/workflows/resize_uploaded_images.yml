@@ -1,0 +1,40 @@
+name: Resize Images
+
+on: push
+
+jobs:
+  scale_images:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Run scaling step
+      id: scale
+      uses: turtlesec-no/scale-images@v1.0
+      with:
+       image-folder: '.'
+
+    - name: No images found - scaling output 0
+      if: steps.scale.outputs.scaled == '0'
+      run: echo "No images found"
+
+    - name: All images were already scaled - scaling output 1
+      if: steps.scale.outputs.scaled == '1'
+      run: echo "All images were already scaled"
+
+    - name: Some/all images scaled - scaling output 2
+      if: steps.scale.outputs.scaled == '2'
+      run: echo "Some/all images scaled"
+
+    - name: Commit image files
+      working-directory: .
+      run: | 
+        git config user.email "bot@turtlesec.no"
+        git config user.name "Turtle Bot (GitHub Action)"
+        if [[ "$( git status --porcelain)" != "" ]]; then
+          git add -A
+          git commit -m "Updated image files"
+          git push
+        fi
