@@ -2,7 +2,10 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
+    
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -13,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt-get -y install texlive-full
+          sudo apt install make texlive-xetex texlive-fonts-extra
 
       - name: Build pdfs
         run: |
