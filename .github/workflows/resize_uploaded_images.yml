@@ -1,6 +1,9 @@
 name: Resize Images
 
-on: push
+on: 
+  push:
+    branches:
+      - main
 
 jobs:
   scale_images:
