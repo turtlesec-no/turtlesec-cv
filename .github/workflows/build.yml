@@ -2,9 +2,12 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
     
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -24,6 +27,7 @@ jobs:
           make clean
       
       - name: Commit pdf files
+        if: ${{ github.ref_name == 'main' }}
         working-directory: pdfs
         run: | 
           git config user.email "bot@turtlesec.no"
@@ -33,3 +37,11 @@ jobs:
             git commit -m "Updated pdf files"
             git push
           fi
+
+      - name: Store artifacts
+        uses: actions/upload-artifact@v3
+        if: ${{ github.ref_name != 'main' }} && ${{ always() }}
+        with:
+          retention-days: 3  
+          name: pdfs
+          path: pdfs/
