@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install make texlive-xetex texlive-fonts-extra
+          sudo apt install libreoffice make texlive-xetex texlive-fonts-extra
 
       - name: Build pdfs
         run: |
