@@ -1,8 +1,7 @@
 %-------------------------------------------------------------------------------
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
-\cvsection{Writing}
-
+\ifthenelse{\boolean{isnorwegian}}{ \cvsection{Publiseringer} } { \cvsection{Writing} }
 
 %-------------------------------------------------------------------------------
 %	CONTENT
@@ -11,15 +10,19 @@
 
 %---------------------------------------------------------
   \cventry
-    {Author} % Role
-    {How to Turtle} % Title
-    {Masters Thesis} % Location
-    {2017} % Date(s)
-    {
-      \begin{cvitems} % Description(s)
+  {Author} % Role
+  {How to Turtle} % Title
+  {Masters Thesis} % Location
+  {2017} % Date(s)
+  {
+    \begin{cvitems} % Description(s)
+      \ifthenelse{\boolean{isnorwegian}}{
+        \item {"Gjennom verdens bunnløse dyp svømmer stjerneskilpadden Great A'Tuin" - Terry Pratchett}
+      }{
         \item {"Through the fathomless deeps of space swims the star turtle Great A'Tuin" - Terry Pratchett}
-      \end{cvitems}
-    }
+      }
+    \end{cvitems}
+  }
 
 %---------------------------------------------------------
 \end{cventries}

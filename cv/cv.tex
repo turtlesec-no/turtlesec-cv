@@ -20,8 +20,7 @@
 %-------------------------------------------------------------------------------
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
-% A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[11pt, a4paper]{awesome-cv}
+\usepackage{longtable}
 
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
@@ -49,6 +48,24 @@
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
+\newcommand{\Programming}{\ifthenelse{\boolean{isnorwegian}}{Programmering}{Programming}}
+\newcommand{\Security}{\ifthenelse{\boolean{isnorwegian}}{Sikkerhet}{Security}}
+
+% Months
+\newcommand{\January}{\ifthenelse{\boolean{isnorwegian}}{Januar}{January}}
+\newcommand{\February}{\ifthenelse{\boolean{isnorwegian}}{Februar}{February}}
+\newcommand{\March}{\ifthenelse{\boolean{isnorwegian}}{Mars}{March}}
+\newcommand{\April}{\ifthenelse{\boolean{isnorwegian}}{April}{April}}
+\newcommand{\May}{\ifthenelse{\boolean{isnorwegian}}{Mai}{May}}
+\newcommand{\June}{\ifthenelse{\boolean{isnorwegian}}{Juni}{June}}
+\newcommand{\July}{\ifthenelse{\boolean{isnorwegian}}{Juli}{July}}
+\newcommand{\August}{\ifthenelse{\boolean{isnorwegian}}{August}{August}}
+\newcommand{\September}{\ifthenelse{\boolean{isnorwegian}}{September}{September}}
+\newcommand{\October}{\ifthenelse{\boolean{isnorwegian}}{Oktober}{October}}
+\newcommand{\November}{\ifthenelse{\boolean{isnorwegian}}{November}{November}}
+\newcommand{\December}{\ifthenelse{\boolean{isnorwegian}}{Desember}{December}}
+
+\newcommand{\Norway}{\ifthenelse{\boolean{isnorwegian}}{Norge}{Norway}}
 
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
@@ -58,8 +75,8 @@
 % \photo{profile.png}
 \photo[circle,noedge,left]{profile.250}
 \name{Turtle}{Sec}
-\position{Programmer{\enskip\cdotp\enskip}Security Expert}
-\address{TurtleSec AS, Oslo, Norway}
+\position{\Programming{}{\enskip\cdotp\enskip}DevOps{\enskip\cdotp\enskip}\Security{}}
+\address{TurtleSec AS, Oslo, \Norway{}}
 
 \mobile{(+47) 55555555}
 \email{turtle@turtlesec.no}
@@ -77,7 +94,7 @@
 % \googlescholar{googlescholar-id}{}
 % \extrainfo{extra informations}
 
-\quote{``Turtles All The Way Down"}
+% \quote{``Turtles All The Way Down"}
 
 
 %-------------------------------------------------------------------------------
@@ -91,7 +108,7 @@
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-  {TurtleSec~~~·~~~Curriculum Vitae}
+  {Turtle, TurtleSec~~~·~~~Curriculum Vitae}
   {\thepage}
 
 
@@ -110,7 +127,11 @@
 \input{cv/articles.tex}
 \input{cv/writing.tex}
 \input{cv/presentation.tex}
-
+\ifthenelse{\boolean{isnorwegian}}
+{
+\pagebreak
+\input{cv/projects.tex}
+}{}
 
 %-------------------------------------------------------------------------------
 \end{document}

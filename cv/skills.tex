@@ -1,8 +1,7 @@
 %-------------------------------------------------------------------------------
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
-\cvsection{Technical Experience}
-
+\ifthenelse{\boolean{isnorwegian}}{ \cvsection{Teknisk Erfaring} }{ \cvsection{Technical Experience} }
 
 %-------------------------------------------------------------------------------
 %	CONTENT
@@ -12,11 +11,11 @@
 %---------------------------------------------------------
   \cvskill
     {Backend} % Category
-    {Skills} % Skills
+  {Skills} % Skills
 
 %---------------------------------------------------------
   \cvskill
-    {Databases} % Category
+    {\ifthenelse{\boolean{isnorwegian}}{Databaser}{Databases}} % Category
     {Skills} % Skills
 
 %---------------------------------------------------------
@@ -31,7 +30,7 @@
 
 %---------------------------------------------------------
   \cvskill
-    {Infrastructure} % Category
+    {\ifthenelse{\boolean{isnorwegian}}{Infrastruktur}{Infrastructure}} % Category
     {Skills} % Skills
 
 %---------------------------------------------------------
@@ -46,7 +45,7 @@
 
 %---------------------------------------------------------
   \cvskill
-    {Security} % Category
+    {\ifthenelse{\boolean{isnorwegian}}{Sikkerhet}{Security}} % Category
     {Skills} % Skills
 
 %---------------------------------------------------------
@@ -61,13 +60,17 @@
 
 %---------------------------------------------------------
   \cvskill
-    {Platforms} % Category
+    {\ifthenelse{\boolean{isnorwegian}}{Platformer}{Platforms}} % Category
     {Skills} % Skills
 
 %---------------------------------------------------------
   \cvskill
-    {Languages} % Category
-    {Skills} % Skills
+    {\ifthenelse{\boolean{isnorwegian}}{Språk}{Languages}} % Category
+    {
+      \ifthenelse{\boolean{isnorwegian}}
+      {Språk}
+      {Languages}
+    }% Skills
 
 %---------------------------------------------------------
 \end{cvskills}

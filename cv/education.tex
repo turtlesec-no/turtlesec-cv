@@ -1,8 +1,12 @@
 %-------------------------------------------------------------------------------
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
-\cvsection{Formal Education}
+\ifthenelse{\boolean{isnorwegian}}{ \cvsection{Utdannelse} } { \cvsection{Formal Education} }
 
+\newcommand{\NTNU}{\ifthenelse{\boolean{isnorwegian}}{Norges teknisk-naturvitenskapelige universitet (NTNU)}{Norwegian University of Science and Technology (NTNU)}}
+\newcommand{\UIO}{\ifthenelse{\boolean{isnorwegian}}{Universitetet i Oslo, Institutt for informatikk}{University of Oslo, Department of Informatics}}
+\newcommand{\Master}{\ifthenelse{\boolean{isnorwegian}}{Mastergrad i informatikk}{Master of Computer Science}}
+\newcommand{\Bachelor}{\ifthenelse{\boolean{isnorwegian}}{Bachelor i informatikk}{Bachelor of Computer Science}}
 
 %-------------------------------------------------------------------------------
 %	CONTENT
@@ -11,27 +15,35 @@
 
 %---------------------------------------------------------
   \cventry
-    {Master of Computer Science} % Degree
-    {\href{https://www.mn.uio.no/ifi/}{University of Oslo, Department of Informatics}} % Institution
-    {Oslo, Norway} % Location
-    {August 2003 - June 2005} % Date(s)
+    {\Master{}} % Degree
+    {\href{https://www.mn.uio.no/ifi/}{\UIO{}}} % Institution
+    {Oslo, \Norway{}} % Location
+    {\August{} 2003 - \June{} 2005} % Date(s)
     {
       \begin{cvitems} % Description(s) bullet points
-        \item {Focus on turtles}
+        \ifthenelse{\boolean{isnorwegian}}{
+          \item {Fokus på skilpadder}
+        }{
+          \item {Focus on turtles}
+        }
       \end{cvitems}
     }
 
 %---------------------------------------------------------
   \cventry
-    {Bachelor of Computer Science} % Degree
-    {\href{https://www.mn.uio.no/ifi/}{University of Oslo, Department of Informatics}} % Institution
-    {Oslo, Norway} % Location
-    {August 2000 - June 2003} % Date(s)
-    {
-      \begin{cvitems} % Description(s) bullet points
+    {\Bachelor{}} % Degree
+    {\href{https://www.mn.uio.no/ifi/}{\UIO{}}} % Institution
+    {Oslo, \Norway{}} % Location
+    {\August{} 2000 - \June{} 2003} % Date(s)
+  {
+    \begin{cvitems} % Description(s) bullet points
+      \ifthenelse{\boolean{isnorwegian}}{
+        \item {Fokus på skilpadder}
+      }{
         \item {Focus on turtles}
-      \end{cvitems}
-    }
+      }
+    \end{cvitems}
+  }
 
 %---------------------------------------------------------
 \end{cventries}
