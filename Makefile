@@ -7,13 +7,16 @@ CV_DIR = cv
 CV_SRCS = $(shell find $(CV_DIR) -name '*.tex')
 CONSULTANT_NAME = TurtleSec
 
-all: $(foreach x, coverletter cv_en cv_no tech_no, $x.pdf)
+all: $(foreach x, coverletter cv_en cv_no tech_no, $x.pdf) cv_no.docx
 
 cv_en.pdf: $(CV_SRCS)
 	$(CC) -jobname=$(CONSULTANT_NAME)_CV_EN -output-directory=$(PDF_DIR) $(CV_DIR)/english_cv.tex
 
 cv_no.pdf: $(CV_SRCS)
 	$(CC) -jobname=$(CONSULTANT_NAME)_CV_NO -output-directory=$(PDF_DIR) $(CV_DIR)/norsk_cv.tex
+
+cv_no.docx: cv_no.pdf
+	libreoffice --headless --infilter="writer_pdf_import" --convert-to docx --outdir $(PDF_DIR) $(PDF_DIR)/TurtleSec_CV_NO.pdf
 
 coverletter.pdf: $(COVER_LETTER_DIR)/coverletter.tex
 	$(CC) -jobname=$(CONSULTANT_NAME)_CL_EN -output-directory=$(PDF_DIR) $(COVER_LETTER_DIR)/coverletter.tex
