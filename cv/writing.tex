@@ -3,6 +3,10 @@
 %-------------------------------------------------------------------------------
 \ifthenelse{\boolean{isnorwegian}}{ \cvsection{Publiseringer} } { \cvsection{Writing} }
 
+\newcommand{\Author}{\ifthenelse{\boolean{isnorwegian}}{Forfatter}{Author}}
+\newcommand{\CoAuthor}{\ifthenelse{\boolean{isnorwegian}}{Medforfatter}{Co-Author}}
+\newcommand{\MastersThesis}{\ifthenelse{\boolean{isnorwegian}}{Masteroppgave}{Masters Thesis}}
+
 %-------------------------------------------------------------------------------
 %	CONTENT
 %-------------------------------------------------------------------------------
@@ -10,9 +14,9 @@
 
 %---------------------------------------------------------
   \cventry
-  {Author} % Role
+  {\Author{}} % Role
   {How to Turtle} % Title
-  {Masters Thesis} % Location
+  {\MastersThesis{}} % Location
   {2017} % Date(s)
   {
     \begin{cvitems} % Description(s)
