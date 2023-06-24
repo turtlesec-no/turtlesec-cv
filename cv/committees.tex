@@ -1,8 +1,9 @@
 %-------------------------------------------------------------------------------
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
-\cvsection{Program Committees}
+\ifthenelse{\boolean{isnorwegian}}{ \cvsection{Programkomitéer} } { \cvsection{Program Committees} }
 
+\newcommand{\Member}{\ifthenelse{\boolean{isnorwegian}}{Medlem av programkomitéen}{Program Commitee Member}}
 
 %-------------------------------------------------------------------------------
 %	CONTENT
@@ -11,10 +12,10 @@
 
 %---------------------------------------------------------
   \cvhonor
-    {Program Commitee Member} % Position
+    {\Member{}} % Position
     {Turtle Conference} % Committee
-    {Oslo, Norway} % Location
-    {2019-now} % Date(s)
+    {Oslo, \Norway{}} % Location
+    {2019-\Now{}} % Date(s)
 
 %---------------------------------------------------------
 \end{cvhonors}

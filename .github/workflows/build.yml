@@ -34,7 +34,8 @@ jobs:
           git config user.name "Turtle Bot (GitHub Action)"
           if [[ "$( git status --porcelain)" != "" ]]; then
             git add *.pdf
-            git commit -m "Updated pdf files"
+            git add *.docx
+            git commit -m "Updated pdf and docx files"
             git push
           fi
 

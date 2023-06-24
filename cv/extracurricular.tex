@@ -1,7 +1,9 @@
 %-------------------------------------------------------------------------------
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
-\cvsection{Organizational Roles}
+\ifthenelse{\boolean{isnorwegian}}{ \cvsection{Frivillig arbeid} } { \cvsection{Volunteer Work} }
+
+\newcommand{\Volunteer}{\ifthenelse{\boolean{isnorwegian}}{Frivillig}{Volunteer}}
 
 %-------------------------------------------------------------------------------
 %	CONTENT
@@ -9,10 +11,10 @@
 \begin{cvhonors}
 %---------------------------------------------------------
   \cvhonor
-    {Volunteer} % Affiliation/role
+    {\Volunteer{}} % Affiliation/role
     {\href{https://turtlesec.no/}{TurtleCon}} % Organization/group
-    {Oslo, Norway} % Location
-    {2018-now} % Date(s)
+    {Oslo, \Norway{}} % Location
+    {2018-\Now{}} % Date(s)
 
 %---------------------------------------------------------
 \end{cvhonors}

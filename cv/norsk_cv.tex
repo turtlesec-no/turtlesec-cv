@@ -1,0 +1,14 @@
+%! Author = patricia
+%! Date = 6/22/2023
+
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+
+\usepackage{ifthen}
+\usepackage{polyglossia}
+\setdefaultlanguage{norsk}
+
+\newboolean{isnorwegian}
+\setboolean{isnorwegian}{true}
+
+\input{cv/cv.tex}

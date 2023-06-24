@@ -1,7 +1,9 @@
 %-------------------------------------------------------------------------------
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
-\cvsection{Interviews / Podcasts}
+\ifthenelse{\boolean{isnorwegian}}{ \cvsection{Intervjuer / Podcaster} } { \cvsection{Interviews / Podcasts} }
+
+\newcommand{\Interview}{\ifthenelse{\boolean{isnorwegian}}{Intervju}{Interview}}
 
 %-------------------------------------------------------------------------------
 %	CONTENT
@@ -12,7 +14,7 @@
   \cvhonor
     {TurtleCast} % Publication
     {\href{https://turtlesec.no/}{Turtle Security}} % Title
-    {English} % Language
+    {\Interview{}} % Language
     {2019} % Date(s)
 
 %---------------------------------------------------------

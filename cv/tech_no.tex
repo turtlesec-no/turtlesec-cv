@@ -1,16 +1,14 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
-% Awesome CV LaTeX Template for CV/Resume
+% Awesome CV LaTeX Template for Cover Letter
 %
 % This template has been downloaded from:
 % https://github.com/posquit0/Awesome-CV
 %
-% Author:
+% Authors:
 % Claud D. Park <posquit0.bj@gmail.com>
-% http://www.posquit0.com
-%
+% Lars Richter <mail@ayeks.de>
 % Patricia Aas <patricia@turtlesec.no>
-% https://patricia.no
 %
 % Template license:
 % CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
@@ -20,7 +18,15 @@
 %-------------------------------------------------------------------------------
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
-\usepackage{longtable}
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+
+\usepackage{ifthen}
+\usepackage{polyglossia}
+\setdefaultlanguage{norsk}
+
+\newboolean{isnorwegian}
+\setboolean{isnorwegian}{true}
 
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
@@ -51,23 +57,6 @@
 \newcommand{\Programming}{\ifthenelse{\boolean{isnorwegian}}{Programmering}{Programming}}
 \newcommand{\Security}{\ifthenelse{\boolean{isnorwegian}}{Sikkerhet}{Security}}
 
-% Months
-\newcommand{\January}{\ifthenelse{\boolean{isnorwegian}}{Januar}{January}}
-\newcommand{\February}{\ifthenelse{\boolean{isnorwegian}}{Februar}{February}}
-\newcommand{\March}{\ifthenelse{\boolean{isnorwegian}}{Mars}{March}}
-\newcommand{\April}{\ifthenelse{\boolean{isnorwegian}}{April}{April}}
-\newcommand{\May}{\ifthenelse{\boolean{isnorwegian}}{Mai}{May}}
-\newcommand{\June}{\ifthenelse{\boolean{isnorwegian}}{Juni}{June}}
-\newcommand{\July}{\ifthenelse{\boolean{isnorwegian}}{Juli}{July}}
-\newcommand{\August}{\ifthenelse{\boolean{isnorwegian}}{August}{August}}
-\newcommand{\September}{\ifthenelse{\boolean{isnorwegian}}{September}{September}}
-\newcommand{\October}{\ifthenelse{\boolean{isnorwegian}}{Oktober}{October}}
-\newcommand{\November}{\ifthenelse{\boolean{isnorwegian}}{November}{November}}
-\newcommand{\December}{\ifthenelse{\boolean{isnorwegian}}{Desember}{December}}
-
-\newcommand{\Current}{\ifthenelse{\boolean{isnorwegian}}{d.d.}{Current}}
-\newcommand{\Now}{\ifthenelse{\boolean{isnorwegian}}{d.d.}{now}} % Shorter
-
 \newcommand{\Norway}{\ifthenelse{\boolean{isnorwegian}}{Norge}{Norway}}
 
 %-------------------------------------------------------------------------------
@@ -75,7 +64,6 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
-% \photo{profile.png}
 \photo[circle,noedge,left]{profile.250}
 \name{Turtle}{Sec}
 \position{\Programming{}{\enskip\cdotp\enskip}DevOps{\enskip\cdotp\enskip}\Security{}}
@@ -99,42 +87,26 @@
 
 % \quote{``Turtles All The Way Down"}
 
+\usepackage{longtable}
 
-%-------------------------------------------------------------------------------
 \begin{document}
 
 % Print the header with above personal informations
 % Give optional argument to change alignment(C: center, L: left, R: right)
-\makecvheader
+    \makecvheader[R]
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
-\makecvfooter
-  {\today}
-  {Turtle, TurtleSec~~~·~~~Curriculum Vitae}
-  {\thepage}
-
-
-%-------------------------------------------------------------------------------
-%	CV/RESUME CONTENT
-%	Each section is imported separately, open each file in turn to modify content
-%-------------------------------------------------------------------------------
-\input{cv/summary.tex}
-\input{cv/skills.tex}
-\input{cv/experience.tex}
-\input{cv/education.tex}
-\input{cv/trainings.tex}
-\input{cv/committees.tex}
-\input{cv/extracurricular.tex}
-\input{cv/honors.tex}
-\input{cv/articles.tex}
-\input{cv/writing.tex}
-\input{cv/presentation.tex}
-\ifthenelse{\boolean{isnorwegian}}
-{
-\pagebreak
-\input{cv/projects.tex}
-}{}
+    \makecvfooter
+    {\today}
+    {Turtle, TurtleSec AS~~~·~~~Teknisk Erfaring}
+    {}
 
 %-------------------------------------------------------------------------------
+%	LETTER CONTENT
+%-------------------------------------------------------------------------------
+    \begin{cvletter}
+        \input{cv/projects.tex}
+    \end{cvletter}
+
 \end{document}

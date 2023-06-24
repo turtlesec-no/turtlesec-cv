@@ -1,8 +1,9 @@
 %-------------------------------------------------------------------------------
 %	SECTION TITLE
 %-------------------------------------------------------------------------------
-\cvsection{Experience}
+\ifthenelse{\boolean{isnorwegian}}{ \cvsection{Erfaring} } { \cvsection{Experience} }
 
+\newcommand{\SeniorConsultant}{\ifthenelse{\boolean{isnorwegian}}{Seniorkonsulent}{Senior Consultant}}
 
 %-------------------------------------------------------------------------------
 %	CONTENT
@@ -11,13 +12,17 @@
 
 %---------------------------------------------------------
   \cventry
-    {Senior Consultant} % Job title
+    {\SeniorConsultant{}} % Job title
     {\href{https://turtlesec.no/}{TurtleSec AS}} % Organization
-    {Oslo, Norway} % Location
-    {March 2018 - Current} % Date(s)
+    {Oslo, \Norway{}} % Location
+    {\March{} 2018 - \Current{}} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Contracting and Consulting}
+        \ifthenelse{\boolean{isnorwegian}}{
+          \item {Konsulent}
+        }{
+          \item {Contracting and Consulting}
+        }
       \end{cvitems}
     }
 
