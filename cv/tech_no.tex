@@ -21,6 +21,13 @@
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{awesome-cv}
 
+\usepackage{ifthen}
+\usepackage{polyglossia}
+\setdefaultlanguage{norsk}
+
+\newboolean{isnorwegian}
+\setboolean{isnorwegian}{true}
+
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
@@ -47,6 +54,10 @@
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
+\newcommand{\Programming}{\ifthenelse{\boolean{isnorwegian}}{Programmering}{Programming}}
+\newcommand{\Security}{\ifthenelse{\boolean{isnorwegian}}{Sikkerhet}{Security}}
+
+\newcommand{\Norway}{\ifthenelse{\boolean{isnorwegian}}{Norge}{Norway}}
 
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
@@ -55,8 +66,8 @@
 % Available options: circle|rectangle,edge/noedge,left/right
 \photo[circle,noedge,left]{profile.250}
 \name{Turtle}{Sec}
-\position{Programming{\enskip\cdotp\enskip}Security}
-\address{TurtleSec AS, Oslo, Norway}
+\position{\Programming{}{\enskip\cdotp\enskip}DevOps{\enskip\cdotp\enskip}\Security{}}
+\address{TurtleSec AS, Oslo, \Norway{}}
 
 \mobile{(+47) 55555555}
 \email{turtle@turtlesec.no}
