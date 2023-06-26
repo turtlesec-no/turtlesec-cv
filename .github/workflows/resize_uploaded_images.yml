@@ -1,6 +1,6 @@
 name: Resize Images
 
-on: 
+on:
   push:
     branches:
       - main
