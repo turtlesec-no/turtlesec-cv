@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    
+
   workflow_dispatch:
 
 concurrency:
@@ -25,11 +25,11 @@ jobs:
         run: |
           make
           make clean
-      
+
       - name: Commit pdf files
         if: ${{ github.ref_name == 'main' }}
         working-directory: pdfs
-        run: | 
+        run: |
           git config user.email "bot@turtlesec.no"
           git config user.name "Turtle Bot (GitHub Action)"
           if [[ "$( git status --porcelain)" != "" ]]; then
@@ -43,6 +43,6 @@ jobs:
         uses: actions/upload-artifact@v3
         if: ${{ github.ref_name != 'main' }} && ${{ always() }}
         with:
-          retention-days: 3  
+          retention-days: 3
           name: pdfs
           path: pdfs/
