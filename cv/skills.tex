@@ -3,6 +3,8 @@
 %-------------------------------------------------------------------------------
 \ifthenelse{\boolean{isnorwegian}}{ \cvsection{Teknisk Erfaring} }{ \cvsection{Technical Experience} }
 
+\newcommand{\Certifications}{\ifthenelse{\boolean{isnorwegian}}{Sertifiseringer}{Certifications}}
+
 %-------------------------------------------------------------------------------
 %	CONTENT
 %-------------------------------------------------------------------------------
@@ -10,8 +12,13 @@
 
 %---------------------------------------------------------
   \cvskill
+    {\Certifications{}} % Category
+    {Skills} % Skills
+
+%---------------------------------------------------------
+  \cvskill
     {Backend} % Category
-  {Skills} % Skills
+    {Skills} % Skills
 
 %---------------------------------------------------------
   \cvskill

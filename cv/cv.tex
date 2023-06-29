@@ -111,7 +111,7 @@
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-  {Turtle, TurtleSec~~~·~~~Curriculum Vitae}
+  {Turtle, TurtleSec AS~~~·~~~Curriculum Vitae}
   {\thepage}
 
 
@@ -124,16 +124,18 @@
 \input{cv/experience.tex}
 \input{cv/education.tex}
 \input{cv/trainings.tex}
-\input{cv/committees.tex}
-\input{cv/extracurricular.tex}
-\input{cv/honors.tex}
-\input{cv/articles.tex}
-\input{cv/writing.tex}
-\input{cv/presentation.tex}
-\ifthenelse{\boolean{isnorwegian}}
-{
-\pagebreak
-\input{cv/projects.tex}
+\ifthenelse{\boolean{islong}} {
+  \input{cv/committees.tex}
+  \input{cv/extracurricular.tex}
+  \input{cv/honors.tex}
+  \input{cv/articles.tex}
+  \input{cv/writing.tex}
+  \input{cv/presentation.tex}
+  \ifthenelse{\boolean{isnorwegian}}
+  {
+    \pagebreak
+    \input{cv/projects.tex}
+  }{}
 }{}
 
 %-------------------------------------------------------------------------------
