@@ -1,15 +1,19 @@
-\cvsection{Prosjekter}
+\ifthenelse{\boolean{isnorwegian}}{ \cvsection{Prosjekter} } { \cvsection{Projects} }
+
+\newcommand{\Description}{\ifthenelse{\boolean{isnorwegian}}{Beskrivelse}{Description}}
+\newcommand{\Tech}{\ifthenelse{\boolean{isnorwegian}}{Teknologier}{Tech}}
+\newcommand{\Translate}[2]{\ifthenelse{\boolean{isnorwegian}}{#1}{#2}}
 
 \begin{longtable}{r|p{14cm}}
 
-    \honorpositionstyle{TurtleSec AS} & \entrypositionstyle{Prosjekt Navn} \\
-    \honorpositionstyle{Beskrivelse}  & \descriptionstyle{Turtle}          \\
-    \honorpositionstyle{Teknologier}  & \descriptionstyle{Turtle Power}    \\
+    \honorpositionstyle{TurtleSec AS}   & \entrypositionstyle{Prosjekt Navn}                \\
+    \honorpositionstyle{\Description{}} & \descriptionstyle{\Translate{Skilpadden}{Turtle}} \\
+    \honorpositionstyle{\Tech{}}        & \descriptionstyle{Turtle Power}                   \\
     \multicolumn{2}{c}{} \\
 
-    \honorpositionstyle{TurtleSec AS} & \entrypositionstyle{Prosjekt Navn} \\
-    \honorpositionstyle{Beskrivelse}  & \descriptionstyle{Turtle}          \\
-    \honorpositionstyle{Teknologier}  & \descriptionstyle{Turtle Power}    \\
+    \honorpositionstyle{TurtleSec AS}   & \entrypositionstyle{Prosjekt Navn}                \\
+    \honorpositionstyle{\Description{}} & \descriptionstyle{\Translate{Skilpadden}{Turtle}} \\
+    \honorpositionstyle{\Tech{}}        & \descriptionstyle{Turtle Power}                   \\
     \multicolumn{2}{c}{} \\
 
 \end{longtable}
