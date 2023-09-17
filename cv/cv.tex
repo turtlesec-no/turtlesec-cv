@@ -70,17 +70,35 @@
 
 \newcommand{\Norway}{\ifthenelse{\boolean{isnorwegian}}{Norge}{Norway}}
 
+\newcommand{\Turtle}{\ifthenelse{\boolean{isredacted}}{[Redacted]}{Turtle}}
+
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
 % \photo{profile.png}
-\photo[circle,noedge,left]{profile.250}
-\name{Turtle}{Sec}
+
+\ifthenelse{\boolean{isredacted}}
+{
+  \photo[circle,noedge,left]{profile.redacted.250}
+  \name{Redacted}{Turtle}
+}
+{
+  \photo[circle,noedge,left]{profile.250}
+  \name{Turtle}{Sec}
+}
+
 \position{\Programming{}{\enskip\cdotp\enskip}DevOps{\enskip\cdotp\enskip}\Security{}}
 \address{TurtleSec AS, Oslo, \Norway{}}
 
+\ifthenelse{\boolean{isredacted}}
+{
+  \email{turtle@turtlesec.no}
+  \homepage{turtlesec.no}
+  \linkedin{turtlesec}
+}
+{
 \mobile{(+47) 55555555}
 \email{turtle@turtlesec.no}
 \homepage{turtlesec.no}
@@ -98,6 +116,7 @@
 % \extrainfo{extra informations}
 
 % \quote{``Turtles All The Way Down"}
+}
 
 
 %-------------------------------------------------------------------------------
@@ -110,9 +129,17 @@
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 \makecvfooter
-  {\today}
-  {Turtle, TurtleSec AS~~~·~~~Curriculum Vitae}
-  {\thepage}
+{\today}
+{
+  \ifthenelse{\boolean{isredacted}}
+  {
+      {Redacted Turtle, TurtleSec AS~~~·~~~Curriculum Vitae}
+  }
+  {
+      {Turtle, TurtleSec AS~~~·~~~Curriculum Vitae}
+  }
+}
+{\thepage}
 
 
 %-------------------------------------------------------------------------------
